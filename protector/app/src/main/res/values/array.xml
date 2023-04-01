@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sex_array">
+        <item>성별</item>
+        <item>남</item>
+        <item>여</item>
+    </string-array>
+
+    <string-array name="nationality_array">
+        <item>국적</item>
+        <item>내국인</item>
+        <item>외국인</item>
+    </string-array>
+
+    <string-array name="blood_array">
+        <item>혈액형</item>
+        <item>A(RH+)</item>
+        <item>B(RH+)</item>
+        <item>O(RH+)</item>
+        <item>AB(RH+)</item>
+        <item>A(RH-)</item>
+        <item>B(RH-)</item>
+        <item>O(RH-)</item>
+        <item>AB(RH-)</item>
+        <item>기타</item>
+    </string-array>
+
+</resources>

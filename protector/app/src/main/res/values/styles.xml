@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- NavigationView 글씨체 설정을 위한 Style -->
+<resources>
+    <style name = "Widget.NavigationView" parent="Widget.Design.NavigationView">
+        <item name = "android:fontFamily">@font/nanumsquareeb</item>
+    </style>
+</resources>

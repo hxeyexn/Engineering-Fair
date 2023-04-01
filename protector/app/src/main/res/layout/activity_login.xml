@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="view.LoginActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:minHeight="?attr/actionBarSize"
+        app:contentInsetStart="0dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="로그인"
+            android:textSize="17sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/nanumsquareb" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginBottom="35dp"-->
+<!--            android:fontFamily="@font/nanumsquareeb"-->
+<!--            android:text="로그인"-->
+<!--            android:textSize="15sp" />-->
+
+        <EditText
+            android:id="@+id/login_Email"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginBottom="15dp"
+            android:padding="10dp"
+            android:background="@drawable/border"
+            android:hint="이메일"
+            android:fontFamily="@font/nanumsquarer"
+            android:text=""
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/login_Pw"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="10dp"
+            android:background="@drawable/border"
+            android:hint="비밀번호(숫자 6자)"
+            android:inputType="numberPassword"
+            android:maxLength="6"
+            android:text=""
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/Login"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/nanumsquareb"
+            android:text="로그인"
+            android:textSize="13sp"/>
+
+        <Button
+            android:id="@+id/SignUp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:text="회원가입"
+            android:backgroundTint="#BDBDBD"
+            android:fontFamily="@font/nanumsquareb"
+            android:textSize="13sp"/>
+    </LinearLayout>
+</LinearLayout>

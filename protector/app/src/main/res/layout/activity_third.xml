@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="view.ThirdActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        app:contentInsetStart="0dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="실종신고"
+            android:textSize="17sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/nanumsquareb" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:id="@+id/Missing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginBottom="10dp"
+                android:text="비콘 소지자 정보"
+                android:fontFamily="@font/nanumsquareeb"
+                android:textSize="15.5sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/nanumsquareb"
+                    android:text="이름"
+                    android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/mUserName"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/border"
+                    android:fontFamily="@font/nanumsquarer"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:text="주민\n등록번호"
+                    android:fontFamily="@font/nanumsquareb"
+                    android:textSize="12sp"/>
+                <TextView
+                    android:id="@+id/mRrn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/border"
+                    android:fontFamily="@font/nanumsquarer"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:text="휴대전화"
+                    android:fontFamily="@font/nanumsquareb"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/mPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/border"
+                    android:fontFamily="@font/nanumsquarer"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:text="비콘\nUUID"
+                    android:fontFamily="@font/nanumsquareb"
+                    android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/mBeaconUUID"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/border"
+                    android:fontFamily="@font/nanumsquarer"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:text="비콘\nMAC"
+                    android:fontFamily="@font/nanumsquareb"
+                    android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/mBeaconMAC"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/border"
+                    android:fontFamily="@font/nanumsquarer"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:text="국적"
+                    android:fontFamily="@font/nanumsquareb"
+                    android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/mNationality"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/border"
+                    android:fontFamily="@font/nanumsquarer"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:text="성별"
+                    android:fontFamily="@font/nanumsquareb"
+                    android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/mSex"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/border"
+                    android:fontFamily="@font/nanumsquarer"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:text="혈액형"
+                    android:fontFamily="@font/nanumsquareb"
+                    android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/mBlood"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/border"
+                    android:fontFamily="@font/nanumsquarer"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:text="신장"
+                    android:fontFamily="@font/nanumsquareb"
+                    android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/mHeight"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:layout_marginEnd="5dp"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/border"
+                    android:fontFamily="@font/nanumsquarer"
+                    android:textSize="13sp" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:text="cm"
+                    android:fontFamily="@font/nanumsquareb"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:text="몸무게"
+                    android:fontFamily="@font/nanumsquareb"
+                    android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/mWeight"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:layout_marginEnd="5dp"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:background="@drawable/border"
+                    android:fontFamily="@font/nanumsquarer"
+                    android:textSize="13sp" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:text="kg"
+                    android:fontFamily="@font/nanumsquareb"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:text="보호자 정보"
+                android:fontFamily="@font/nanumsquareeb"
+                android:textSize="15.5sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:text="이름"
+                    android:fontFamily="@font/nanumsquareb"
+                    android:textSize="12sp"/>
+                <TextView
+                    android:id="@+id/mProtectorName"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:background="@drawable/border"
+                    android:fontFamily="@font/nanumsquarer"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:text="휴대전화"
+                    android:fontFamily="@font/nanumsquareb"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/mProtectorPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/border"
+                    android:fontFamily="@font/nanumsquarer"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:text="나이"
+                android:fontFamily="@font/nanumsquareeb"
+                android:textSize="15.5sp" />
+
+            <EditText
+                android:id="@+id/Age"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:padding="10dp"
+                android:background="@drawable/border"
+                android:hint="실종자의 나이를 입력해주세요."
+                android:fontFamily="@font/nanumsquarer"
+                android:textSize="12sp"
+                android:text="" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="15dp"
+                android:text="실종장소"
+                android:fontFamily="@font/nanumsquareeb"
+                android:textSize="15.5sp" />
+
+            <EditText
+                android:id="@+id/Location"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:padding="10dp"
+                android:background="@drawable/border"
+                android:hint="ex) 대구광역시 북구 학정동로 10"
+                android:fontFamily="@font/nanumsquarer"
+                android:textSize="12sp"
+                android:text="" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="15dp"
+                android:text="인상착의"
+                android:fontFamily="@font/nanumsquareeb"
+                android:textSize="15.5sp" />
+
+            <EditText
+                android:id="@+id/Description"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:padding="10dp"
+                android:background="@drawable/border"
+                android:hint="실종 시 인상착의 등 특이사항은 반드시 입력해주세요."
+                android:fontFamily="@font/nanumsquarer"
+                android:textSize="12sp"
+                android:text="" />
+
+            <Button
+                android:id="@+id/MissingReport"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:text="실종신고하기"
+                android:fontFamily="@font/nanumsquareb"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
+

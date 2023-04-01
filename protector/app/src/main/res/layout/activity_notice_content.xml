@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        app:contentInsetStart="0dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="알림"
+            android:textSize="17sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/nanumsquareb" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="실종자를 찾았습니다."
+            android:textSize="15sp"
+            android:fontFamily="@font/nanumsquareeb"/>
+
+        <TextView
+            android:id="@+id/noticeDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:text="날짜"
+            android:textSize="11sp"
+            android:fontFamily="@font/nanumsquareb"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginBottom="5dp"
+            android:text="실종자를 찾았습니다."
+            android:textSize="13sp"
+            android:fontFamily="@font/nanumsquarer" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginBottom="5dp"
+            android:text="현재 경찰서에서 실종자를 보호 중입니다."
+            android:textSize="13sp"
+            android:fontFamily="@font/nanumsquarer" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginBottom="5dp"
+            android:text="경찰서로 연락하세요.\n\n알림을 확인하셨으면 하단의 확인 버튼을 눌러주세요."
+            android:textSize="13sp"
+            android:fontFamily="@font/nanumsquarer" />
+
+        <Button
+            android:id="@+id/confirm_button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:text="확인"
+            android:fontFamily="@font/nanumsquareb"
+            android:textSize="13sp" />
+    </LinearLayout>
+</LinearLayout>
