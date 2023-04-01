@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- jQuery  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8" />
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+<body>
+    <!-- Import the functions you need from the SDKs you need -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-analytics.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyDYy9tEWFPWRzTgozxDgQO1VOnu3IlzJbY",
+            authDomain: "test-energizor.firebaseapp.com",
+            databaseURL: "https://test-energizor-default-rtdb.firebaseio.com",
+            projectId: "test-energizor",
+            storageBucket: "test-energizor.appspot.com",
+            messagingSenderId: "1094474704897",
+            appId: "1:1094474704897:web:e192a59a1fe555970bb800",
+            measurementId: "G-B99MN2YKBW"
+        };
+
+        // Initialize Firebase
+        !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app()
+        //firebase.initializeApp(firebaseConfig); //바꾸길 권장
+        //const db = firebase.database();
+
+
+        var provider = new firebase.auth.GoogleAuthProvider();
+
+    </script>
+
+    <!-- TODO : .css 파일로 link태그 걸기 -->
+    <!-- 테이블 스타일 -->
+    <style type="text/css">
+        .DataTable {
+            border-collapse: collapse;
+            border-color: #ccc;
+            border-spacing: 0;
+        }
+
+            .DataTable td {
+                background-color: #fff;
+                border-color: #ccc;
+                border-style: solid;
+                border-width: 1px;
+                color: #333;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                overflow: hidden;
+                padding: 10px 5px;
+                word-break: normal;
+            }
+
+            .DataTable th {
+                background-color: #f0f0f0;
+                border-color: #ccc;
+                border-style: solid;
+                border-width: 1px;
+                color: #333;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                font-weight: normal;
+                overflow: hidden;
+                padding: 10px 5px;
+                word-break: normal;
+            }
+
+
+            .DataTable .tg-normal {
+                text-align: center;
+                vertical-align: top
+            }
+
+
+            .DataTable .tg-header {
+                font-weight: bold;
+                text-align: center;
+                vertical-align: top
+            }
+
+            .DataTable .tg-highlight {
+                background-color: #fe0000;
+                text-align: center;
+                vertical-align: top
+            }
+    </style>
+
+    <!-- 테이블 -->
+    <div id="dt">
+        <table class="DataTable">
+
+            <!-- 테이블 헤더 -->
+            <thead>
+                <tr>
+                    <th class="tg-header">Reporting Status</th>
+                    <th class="tg-header">Reporting Time</th>
+                    <th class="tg-header">MAC</th>
+                    <th class="tg-header">Scan Device No</th>
+                    <th class="tg-header">Scan Location-Latitude</th>
+                    <th class="tg-header">Scan Location-Longitude</th>
+                    <th class="tg-header">Scan Time</th>
+                    <th class="tg-header">User Name</th>
+                    <th class="tg-header">Rrn</th>
+                    <th class="tg-header">Gender</th>
+                    <th class="tg-header">Age</th>
+                    <th class="tg-header">Blood Type</th>
+                    <th class="tg-header">Height</th>
+                    <th class="tg-header">Weight</th>
+                    <th class="tg-header">Nationality</th>
+                    <th class="tg-header">Registration Location</th>
+                    <th class="tg-header">User Phone</th>
+                    <th class="tg-header">Description</th>
+                    <th class="tg-header">Protector Name</th>
+                    <th class="tg-header">Protector Phone</th>
+                    <th class="tg-header">Notice Status</th>
+                    <th class="tg-header">Notice Send</th>
+                    <th class="tg-header">Handover of Protector</th>
+                </tr>
+            </thead>
+
+            <!-- 테이블 바디를 이름을 지정해서 선언, 밑에서 동적으로 뿌리기 -->
+            <tbody class="tablebody_arlam">
+            </tbody>
+
+            <tbody class="tablebody">
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 데이터베이스로부터 정보를 가져와서 테이블 생성하기 -->
+    <script>
+
+        //각 요소에 대응하는 변수 선언
+        //신고현황, LostWarningFlag
+        var LostWarningFlag, LostWarningTime, BeaconMAC, DeviceNo, latitude, longitude, Location, Time, UserName, Rrn, Sex, Age, Blood, Height, Weight, Nationality, Phone, Description, ProtectorName, ProtectorPhone, Position;
+
+        //데이터베이스 경로 설정
+        const eventListner = firebase.database().ref('DataSet/');
+        //데이터베이스 목록의 항목에 대한 변경 사항에 대한 이벤트, 하위 항목의 값이 변경되면 새로고침
+        eventListner.on('child_changed', (changedData) => {
+            setTimeout(function(){
+                location.replace(location.href);
+                //$('#dt').load(location.href + '#dt');
+            },1000);
+        });
+
+        /*firebase의 post라는 문서를 참조하는 객체에 on함수를 사용해서 value에 변화가 생겼을 때를 캐치하라는 의미에서 'value'를 인자로 줬고, 변화는 snapshot으로 캐치를 하기 때문에 변화의 값은 snapshot.val()로 얻을 수 있게 된다. */
+        eventListner.on('value', (snapshot) => {
+            
+            //순차적으로 데이터베이스를 읽어오기위한 증가변수
+            var count = 5000;
+
+            //DB 갯수
+            DBCount = snapshot.numChildren();
+            console.log(DBCount);
+
+            //신고가 들어온 데이터베이스 반복문(데이터베이스 데이터 갯수만큼 동작)
+            snapshot.forEach((data) => {
+
+                //string으로 변환
+                count++;
+                var strCount = count.toString();
+
+                //로그 확인용
+                data = snapshot.val();
+                console.log(data);
+
+
+                //신고현황, LostWarningFlag
+                LostWarningFlag = snapshot.child(strCount).child('ProtectorApp').child('LostWarningFlag').val();
+
+                if (LostWarningFlag) {//신고가 있으면
+                    /**
+                        각 변수에 데이터베이스 요소 담아오기
+                    **/
+                    //신고 있는 데이터 담기
+                    //신고시간, LostWarningTime
+                    LostWarningTime = snapshot.child(strCount).child('ProtectorApp').child('LostWarningTime').val();
+                    //MAC
+                    BeaconMAC = snapshot.child(strCount).child('Beacon').child('BeaconMAC').val();
+                    //스캔단말번호, DeviceNo
+                    DeviceNo = snapshot.child(strCount).child('TrafficLight').child('Scan').child('DeviceNo').val();
+                    //스캔위치, Location
+                    //Location = snapshot.child(strCount).child('TrafficLight').child('Scan').child('Location').val();
+                    //위도, latitude
+                    latitude = snapshot.child(strCount).child('TrafficLight').child('Scan').child('latitude').val();
+                    //경도, longitude
+                    longitude = snapshot.child(strCount).child('TrafficLight').child('Scan').child('longitude').val();
+                    //스캔시간, Time
+                    Time = snapshot.child(strCount).child('TrafficLight').child('Scan').child('Time').val();
+                    //사용자이름, UserName
+                    UserName = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('UserName').val();
+                    //주민등록번호, Rrn
+                    Rrn = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Rrn').val();
+                    //성별, Sex
+                    Sex = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Sex').val();
+                    //나이, Age
+                    Age = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Age').val();
+                    //혈액형, Blood
+                    Blood = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Blood').val();
+                    //키, Height
+                    Height = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Height').val();
+                    //몸무게, Weight
+                    Weight = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Weight').val();
+                    //국적, Nationality
+                    Nationality = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Nationality').val();
+                    //등록위치, Position
+                    Position = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Position').val();
+                    //이동전화, Phone
+                    Phone = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Phone').val();
+                    //인상착의, Description
+                    Description = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Description').val();
+                    //보호자이름, ProtectorName
+                    ProtectorName = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('ProtectorName').val();
+                    //보호자이동전화, ProtectorPhone
+                    ProtectorPhone = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('ProtectorPhone').val();
+                    //비밀번호, PW
+                    //PW = snapshot.child(strCount).child('ProtectorApp').child('PW').val();
+                    //안내문자발송, NoticeMsg
+                    NoticeMsg = snapshot.child(strCount).child('NoticeMsg').val();
+
+                    //테이블 동적생성
+                    //테이블 바디 디자인과 뿌릴 변수를 스트링으로 저장
+                    var template = `<tr>
+                                        <td class="tg-highlight">${LostWarningFlag}</td >
+                                        <td class="tg-normal">${LostWarningTime}</td>
+                                        <td class="tg-normal">${BeaconMAC}</td>
+                                        <td class="tg-normal">${DeviceNo}</td>
+                                        <td class="tg-normal">${latitude}</td>
+                                        <td class="tg-normal">${longitude}</td>
+                                        <td class="tg-normal">${Time}</td>
+                                        <td class="tg-normal">${UserName}</td>
+                                        <td class="tg-normal">${Rrn}</td>
+                                        <td class="tg-normal">${Sex}</td>
+                                        <td class="tg-normal">${Age}</td>
+                                        <td class="tg-normal">${Blood}</td>
+                                        <td class="tg-normal">${Height}</td>
+                                        <td class="tg-normal">${Weight}</td>
+                                        <td class="tg-normal">${Nationality}</td>
+                                        <td class="tg-normal">${Position}</td>
+                                        <td class="tg-normal">${Phone}</td>
+                                        <td class="tg-normal">${Description}</td>
+                                        <td class="tg-normal">${ProtectorName}</td>
+                                        <td class="tg-normal">${ProtectorPhone}</td>
+                                        <td class="tg-normal">${NoticeMsg}</td>
+                                        <td class="tg-normal"><button type="button" id="send">${strCount}</button></td>
+                                        <td class="tg-normal"><button type="button" id="flagswitch">0</button></td>
+                                    </tr>`;
+                    template = template.replace('send', 'send' + strCount); // 안내문자발송 버튼 아이디에 번호 붙이기
+                    template = template.replace('flagswitch', 'flagswitch' + strCount); // 실종자 찾음 버튼 아이디에 번호 붙이기
+                    $('.tablebody_arlam').append(template) // 테이블 바디(신고) 클래스에 붙이기
+
+                    var btn_send = '#send' + strCount;   // 안내문자발송 버튼에 각각 번호부여, 동적연결문에 넣을 변수
+                    var btn_flagswitch = '#flagswitch' + strCount;  // 실종자 찾음 버튼에 각각 번호부여, 동적연결문에 넣을 변수
+                    var msg_send = '[Missing Person]' + ' We looking for ' + UserName + '(' + Sex + ',' + Age + ') in ' + Position + ' - ' + Height + 'cm, ' + Weight + 'kg, ' + Description;
+                    var msg_flagswitch =  UserName + ', ' + Rrn + '(' + Age + 'years old), ' + Sex + ',' + Height + 'cm, ' + Weight + 'kg, ' + 'Protector ' + ProtectorName + ', ' + Description;
+
+                    // 안내문자발송 버튼을 동적연결한다.
+                    $(document).on("click", btn_send, function () {
+                        var result = confirm("Would you like to send a safety message??\n" + msg_send);
+                        // '예'를 선택하면 true(문자 발송)
+                        if (result == true) firebase.database().ref('DataSet/').child(strCount).child('NoticeMsg').set(true);
+                        // '아니오'를 선택하면 false(문자X) -> 없애도 됨? 여러번 다시 보내고 싶을 수도 있잖아
+                        else firebase.database().ref('DataSet/').child(strCount).child('NoticeMsg').set(false);
+
+                        location.reload();
+
+                    });
+
+                    // 실종자 찾음 버튼을 동적연결한다.
+                    $(document).on("click", btn_flagswitch, function () {
+                        var result = confirm("Are you sure you're identifying the missing person and releasing the report?\nYes : Cancellation of missing persons report\nNo : Keeping of missing persons report\n\n" + msg_flagswitch);
+                        // '예'를 선택하면 flase(실종신고 해제), 안내문자발송 상태도 초기화 함(flase)
+                        if (result == true) {
+                            firebase.database().ref('DataSet/').child(strCount).child('ProtectorApp').child('LostWarningFlag').set(false);   //실종신고플래그
+                            firebase.database().ref('DataSet/').child(strCount).child('ProtectorApp').child('LostWarningTime').set("");     //실종신고시간
+                            firebase.database().ref('DataSet/').child(strCount).child('NoticeMsg').set(false);   //안내문자플래그
+                        }
+                            // '아니오'를 선택하면 ture(실종신고 유지)
+                        //else firebase.database().ref('DataSet/').child(strCount).child('ProtectorApp').child('LostWarningFlag').set(true);
+
+                        location.reload();
+
+                    });
+                }
+
+
+
+
+            })
+
+            //신고 없는 데이터베이스 반복문(데이터베이스 데이터 갯수만큼 동작)
+            count = 5000;  //카운트 초기화
+            snapshot.forEach((data) => {
+
+                //string으로 변환
+                count++;
+                var strCount = count.toString();
+
+                //신고현황, LostWarningFlag
+                LostWarningFlag = snapshot.child(strCount).child('ProtectorApp').child('LostWarningFlag').val();
+
+                if (!LostWarningFlag) {//신고가 없으면
+                    /**
+                        각 변수에 데이터베이스 요소 담아오기
+                    **/
+                    //신고 있는 데이터 담기
+                    //신고시간, LostWarningTime
+                    LostWarningTime = snapshot.child(strCount).child('ProtectorApp').child('LostWarningTime').val();
+                    //MAC
+                    BeaconMAC = snapshot.child(strCount).child('Beacon').child('BeaconMAC').val();
+                    //스캔단말번호, DeviceNo
+                    DeviceNo = snapshot.child(strCount).child('TrafficLight').child('Scan').child('DeviceNo').val();
+                    //스캔위치, Location
+                    //Location = snapshot.child(strCount).child('TrafficLight').child('Scan').child('Location').val();
+                    //위도, latitude
+                    latitude = snapshot.child(strCount).child('TrafficLight').child('Scan').child('latitude').val();
+                    //경도, longitude
+                    longitude = snapshot.child(strCount).child('TrafficLight').child('Scan').child('longitude').val();
+                    //스캔시간, Time
+                    Time = snapshot.child(strCount).child('TrafficLight').child('Scan').child('Time').val();
+                    //사용자이름, UserName
+                    UserName = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('UserName').val();
+                    //주민등록번호, Rrn
+                    Rrn = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Rrn').val();
+                    //성별, Sex
+                    Sex = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Sex').val();
+                    //나이, Age
+                    Age = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Age').val();
+                    //혈액형, Blood
+                    Blood = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Blood').val();
+                    //키, Height
+                    Height = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Height').val();
+                    //몸무게, Weight
+                    Weight = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Weight').val();
+                    //국적, Nationality
+                    Nationality = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Nationality').val();
+                    //등록위치, Position
+                    Position = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Position').val();
+                    //이동전화, Phone
+                    Phone = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Phone').val();
+                    //인상착의, Description
+                    Description = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('Description').val();
+                    //보호자이름, ProtectorName
+                    ProtectorName = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('ProtectorName').val();
+                    //보호자이동전화, ProtectorPhone
+                    ProtectorPhone = snapshot.child(strCount).child('ProtectorApp').child('PersonalInformation').child('ProtectorPhone').val();
+                    //비밀번호, PW
+                    //PW = snapshot.child(strCount).child('ProtectorApp').child('PW').val();
+                    //안내문자발송, NoticeMsg
+                    NoticeMsg = snapshot.child(strCount).child('NoticeMsg').val();
+
+                    //테이블 동적생성
+                    //테이블 바디 디자인과 뿌릴 변수를 스트링으로 저장
+                    var template = `<tr>
+                                        <td class="tg-normal">${LostWarningFlag}</td >
+                                        <td class="tg-normal">${LostWarningTime}</td>
+                                        <td class="tg-normal">${BeaconMAC}</td>
+                                        <td class="tg-normal">${DeviceNo}</td>
+                                        <td class="tg-normal">${latitude}</td>
+                                        <td class="tg-normal">${longitude}</td>
+                                        <td class="tg-normal">${Time}</td>
+                                        <td class="tg-normal">${UserName}</td>
+                                        <td class="tg-normal">${Rrn}</td>
+                                        <td class="tg-normal">${Sex}</td>
+                                        <td class="tg-normal">${Age}</td>
+                                        <td class="tg-normal">${Blood}</td>
+                                        <td class="tg-normal">${Height}</td>
+                                        <td class="tg-normal">${Weight}</td>
+                                        <td class="tg-normal">${Nationality}</td>
+                                        <td class="tg-normal">${Position}</td>
+                                        <td class="tg-normal">${Phone}</td>
+                                        <td class="tg-normal">${Description}</td>
+                                        <td class="tg-normal">${ProtectorName}</td>
+                                        <td class="tg-normal">${ProtectorPhone}</td>
+                                        <td class="tg-normal">${NoticeMsg}</td>
+                                    </tr>`;
+
+                    $('.tablebody').append(template) //테이블 바디(일반) 클래스에 붙이기
+
+                }
+
+
+
+            })
+        });
+
+    </script>
+
+</body>
+
+</html>
